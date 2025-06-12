@@ -8,6 +8,7 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #define STB_IMAGE_IMPLEMENTATION
+#include "stb/image.h"
 #include "stb/stb_image.h"
 #include "stb/load_texture.h"
 
@@ -40,7 +41,7 @@ int main()
 	int my_image_width = 96;
 	int my_image_height = 96;
 	GLuint my_image_texture = 0;
-	bool ret = LoadTextureFromFile("../src/niko.png", &my_image_texture, &my_image_width, &my_image_height);
+	bool ret = LoadTextureFromMemory(niko_png, niko_png_len, &my_image_texture, &my_image_width, &my_image_height);
 	IM_ASSERT(ret);
 
 	// Initialize ImGUI
